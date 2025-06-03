@@ -3,6 +3,10 @@ import { PropertyEntity } from "../entities/property_entity";
 
 export class PropertyMapper {
   static toDomain(entity: PropertyEntity): Property {
+    if (!entity.id || !entity.name || !entity.description || !entity.maxGuests || !entity.basePricePerNight) {
+      throw new Error("PropertyEntity is not valid");
+    }
+
     return new Property(
       entity.id,
       entity.name,

@@ -7,6 +7,11 @@ import { UserMapper } from "./user_mapper";
 
 export class BookingMapper {
   static toDomain(entity: BookingEntity, property?: Property): Booking {
+
+
+    if (!entity.id || !entity.property || !entity.guest || !entity.startDate || !entity.endDate || !entity.guestCount || !entity.totalPrice || !entity.status) {
+      throw new Error("BookingEntity is not valid");
+    }
     const guest = UserMapper.toDomain(entity.guest);
     const dateRange = new DateRange(entity.startDate, entity.endDate);
 

@@ -11,7 +11,7 @@ export class Property {
     private basePricePerNight: number
   ) {
     if (!name) {
-      throw new Error("O nome é obrigatório");
+      throw new Error("O campo nome é obrigatório.");
     }
     if (maxGuests <= 0) {
       throw new Error("O número máximo de hóspedes deve ser maior que zero");
